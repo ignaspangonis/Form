@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <form action="/" method="get">
+
+    <div>
+      <label for="firstName">First name</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+
+    <div>
+      <label for="lastName">Last name</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+
+    <div>
+      Gender
+      <div>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">Male</label>
+      </div>
+      <div>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+      </div>
+    </div>
+
+    <div>
+      <label for="date">Birth date</label>
+      <input type="date" name="date" id="date" max="2010-01-01">
+    </div>
+
+    <div>
+      <label for="personalId">Personal ID code</label>
+      <input name="personalId" id="personalId" pattern="[0-9]{11}">
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" value="+3706" required>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div>
+      Other contacts
+      <div>
+        <label for="url"></label>
+        <input type="url" name="url" id="url" required>
+      </div>
+      <div>+</div>
+    </div>
+
+    <div>
+      <label for="address">Home address</label>
+      <input type="text" name="address" id="address" required>
+    </div>
+
+    <div>
+      <label for="maritalStatus"></label>
+      <select name="maritalStatus" id="maritalStatus" required>
+        <option value="Single">Single</option>
+        <option value="Unmarried">Unmarried</option>
+        <option value="Divorced">Divorced</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="text">I have kids</label>
+      <input type="checkbox" name="kids" id="kids" required>
+    </div>
+    <div>
+      <label for="kidsCount">Number of kids</label>
+      <input type="number" id="kidsCount" name="kidsCount" min="0" max="15" required>
+    </div>
+
+    <div>
+      <label for="education"></label>
+      <select name="education" id="education" required>
+        <option value="Primary">Primary</option>
+        <option value="Secondary">Secondary</option>
+        <option value="Vocational">Vocational</option>
+        <option value="Higher-college">Higher-college</option>
+        <option value="Higher-university">Higher-university</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="bio">Bio</label>
+      <textarea name="bio" id="" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+      <label for="a"></label>
+      <input type="a" name="a" id="a" required>
+    </div>
+
+    <button type="reset">Reset</button>
+    <button type="submit">Submit</button>
+
+    <input type="hidden" name="hidden" value="hi">
+
+  </form>
+</body>
+
+</html>
