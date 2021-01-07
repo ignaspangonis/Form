@@ -1,0 +1,69 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: block;
+  width: 100%;
+	float: left;
+	padding-top: 0px;
+}
+
+#formContainer {
+  display: block;
+  margin: auto;
+  padding: 0;
+
+ 
+  background-color:rgba(72,72,72,0.2);
+  padding: 10px;
+  min-width: 300px;
+  max-width: 30vw;
+  border-radius: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 30px auto;
+  margin: 0 auto;
+  width: 250px;
+}
+
+form > div {
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+input:not([type='radio']):not([type='checkbox']) {
+  width: 246px; /* + 4px border = 250px */
+  padding: 0;
+  margin: 0;
+}
+
+
+form > div:not(.checkbox):not(.select), #spouse > div { /* all divs inside form apart from checkbox go vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#spouseContainer, #childrenContainer, #workingContainer, #notWorkingContainer, #studyingContainer {
+  background-color:rgba(72,72,72,0.1);
+  display: none;
+}
+
+button {
+  font-size: inherit;
+  background-color: hsl(155, 100%, 50%);
+  padding: .5em 1em;
+  margin: .5em;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: .2em;
+  color: #333;
+}
