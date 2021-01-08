@@ -11,6 +11,7 @@ const occupationDropdown = document.getElementById('occupation');
 const workingContainer = document.getElementById('workingContainer');
 const notWorkingContainer = document.getElementById('notWorkingContainer');
 const studyingContainer = document.getElementById('studyingContainer');
+const containerArray = [workingContainer, studyingContainer, notWorkingContainer];
 
 const expectedEnd = document.getElementById('expectedEnd');
 
@@ -43,23 +44,37 @@ spouseCheckbox.addEventListener('click', event => {
 });
 occupationDropdown.addEventListener('change', event => {
   if (event.target.value === 'Working') {
-    workingContainer.style.display = 'block';
-    notWorkingContainer.style.display = 'none';
-    studyingContainer.style.display = 'none';
+    changeDisplay(containerArray, 0);
   } else if (event.target.value === "Studying") {
-    workingContainer.style.display = 'none';
-    notWorkingContainer.style.display = 'none';
-    studyingContainer.style.display = 'block';
+    changeDisplay(containerArray, 1);
   } else if (event.target.value === "Not working") {
-    workingContainer.style.display = 'none';
-    notWorkingContainer.style.display = 'block';
-    studyingContainer.style.display = 'none';
+    changeDisplay(containerArray, 2);
+  } else if (event.target.value === "On maternity/paternity leave") {
+    changeDisplay(containerArray, 3);
   }
 });
 
-var today = new Date();
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+function changeDisplay(array, displayedIndex) {
+  for (let i = 0; i < array.length; i++) {
+    if (i === displayedIndex) {
+      array[i].style.display = 'block';
+      changeRequired(array[i], true);
+    } else {
+      array[i].style.display = 'none';
+      changeRequired(array[i], false);
+    }
+  }
+}
+
+function changeRequired(container, bool) {
+  container.querySelectorAll('input').forEach(input => {
+    input.required = bool;
+  });
+}
+
+let today = new Date();
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = today.getFullYear();
 
 today = yyyy + '-' + mm;
 expectedEnd.setAttribute("min", today);
