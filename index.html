@@ -13,23 +13,17 @@
 
 <body>
   <div class="container">
+    <h1>
+      Personal Form
+    </h1>
     <div id="formContainer">
       <form action="/" method="get">
-
-        <div>
-          <label for="firstName">First name</label>
-          <input type="text" id="firstName" name="firstName" required>
-        </div>
-
-        <div>
-          <label for="lastName">Last name</label>
-          <input type="text" id="lastName" name="lastName" required>
-        </div>
-
-        <div>
-          Gender
+        <p>Please provide the following information (* fields need to be filled):</p>
+        <h2>1. Primary</h2>
+        <div id="genderContainer">
+          Gender*
           <div>
-            <input type="radio" name="gender" id="male" value="male">
+            <input type="radio" name="gender" id="male" value="male" required>
             <label for="male">Male</label>
           </div>
           <div>
@@ -39,41 +33,64 @@
         </div>
 
         <div>
-          <label for="date">Birth date</label>
-          <input type="date" name="date" id="date" min="1920-01-01" max="2010-01-01">
+          <label for="firstName">First name*</label>
+          <input type="text" id="firstName" name="firstName" required>
         </div>
 
         <div>
-          <label for="personalId">Personal ID code</label>
+          <label for="middleName">Middle name</label>
+          <input type="text" id="middleName" name="middleName">
+        </div>
+
+        <div>
+          <label for="lastName">Last name*</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div id="maidenContainer">
+          <label for="maidenName">Maiden name (if exists)</label>
+          <input type="text" id="maidenName" name="maidenName">
+        </div>
+
+        <div>
+          <label for="birthDate">Birth date*</label>
+          <input type="date" name="birthDate" id="birthDate" min="1920-01-01" max="2010-01-01" required>
+        </div>
+
+        <div>
+          <label for="personalId">Personal ID code*</label>
           <input name="personalId" id="personalId" pattern="[0-9]{11}" required>
         </div>
 
+        <h2>2. Contacts</h2>
+
         <div>
-          <label for="phone">Phone</label>
+          <label for="phone">Phone*</label>
           <input type="tel" id="phone" name="phone" value="+3706" required>
         </div>
 
         <div>
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input type="email" id="email" name="email" required>
         </div>
 
         <div>
-          Other contacts
-          <div>
-            <label for="url"></label>
-            <input type="url" name="url" id="url">
+          Contact links (social media, personal website, etc.)
+          <div id="contactContainer">
+
           </div>
-          <button type="button">+</button>
+          <button type="button" id="contactAdd">Add a link</button>
         </div>
 
         <div>
-          <label for="address">Home address</label>
+          <label for="address">Home address*</label>
           <input type="text" name="address" id="address" required>
         </div>
 
+        <h2>3. Family</h2>
+
         <div>
-          <label for="maritalStatus">Marital status</label>
+          <label for="maritalStatus">Marital status*</label>
           <select name="maritalStatus" id="maritalStatus" required>
             <option disabled selected value style="display:none">Select an option</option>
             <option value="Not married">Not married</option>
@@ -82,24 +99,21 @@
           </select>
         </div>
 
-        <div class="checkbox">
-          <label for="spouseCheckbox">I have a spouse</label>
-          <input type="checkbox" name="spouseCheckbox" id="spouseCheckbox">
-        </div>
+
         <div id='spouseContainer'>
           <div>
             <b>Spouse information</b>
           </div>
           <div>
-            <label for="spouseLastName">First name</label>
+            <label for="spouseFirstName">First name*</label>
             <input type="text" id="spouseFirstName" name="spouseLastName">
           </div>
           <div>
-            <label for="spouseLastName">Last name</label>
+            <label for="spouseLastName">Last name*</label>
             <input type="text" id="spouseLastName" name="spouseLastName">
           </div>
           <div>
-            <label for="spousePersonalId">Personal ID code</label>
+            <label for="spousePersonalId">Personal ID code*</label>
             <input name="spousePersonalId" id="spousePersonalId" pattern="[0-9]{11}">
           </div>
         </div>
@@ -112,22 +126,24 @@
           <div>
             <b>Children information</b>
           </div>
-          <div>
-            <label for="childrenCount">Number of children</label>
-            <input type="number" id="childrenCount" name="childrenCount" min="1" max="15">
-          </div>
+
           <div id='childrenNames'>
+            Full children names
             <div>
-              <label for="child-1">Child name</label>
+              <label for="child-1"></label>
               <input type="text" id="child-1" name="child-1">
             </div>
           </div>
+          <button type="button" id="childAdd">Add a child</button>
+
         </div>
 
-        <div class="select">
-          <label for="education">Education</label>
+        <h2>4. Occupation</h2>
+
+        <div>
+          <label for="education">Level of education*</label>
           <select name="education" id="education" required>
-            <option disabled selected value style="display:none">Select an option</option>
+            <option disabled selected value style="display:none">Select education</option>
             <option value="Primary">Primary</option>
             <option value="Secondary">Secondary</option>
             <option value="Vocational">Vocational</option>
@@ -136,20 +152,15 @@
           </select>
         </div>
 
-        <div class="select" id="occupationContainer">
-          <label for="occupation">Current occupation</label>
+        <div id="occupationContainer">
+          <label for="occupation">Current occupation*</label>
           <select name="occupation" id="occupation" required>
-            <option disabled selected value style="display:none">Select an option</option>
+            <option disabled selected value style="display:none">Select occupation</option>
             <option value="Studying">Studying</option>
             <option value="Working">Working</option>
             <option value="Not working">Not working</option>
             <option value="On maternity/paternity leave">On maternity/paternity leave</option>
           </select>
-        </div>
-
-        <div>
-          <label for="expectedEnd">Expected end</label>
-          <input type="month" name="expectedEnd" id="expectedEnd">
         </div>
         <!-- "yyyy-MM" -->
 
@@ -158,15 +169,15 @@
             <b>Studies information</b>
           </div>
           <div>
-            <label for="degree">Degree of study</label>
+            <label for="degree">Degree of study*</label>
             <input type="text" name="degree" id="degree">
           </div>
           <div>
-            <label for="year">Year of study</label>
+            <label for="year">Current year of study*</label>
             <input type="text" name="year" id="year">
           </div>
           <div>
-            <label for="institution">Institution</label>
+            <label for="institution">Institution*</label>
             <input type="text" name="institution" id="institution">
           </div>
         </div>
@@ -176,39 +187,44 @@
             <b>Work information</b>
           </div>
           <div>
-            <label for="company">Work company</label>
+            <label for="company">Work company*</label>
             <input type="text" name="company" id="company">
           </div>
           <div>
-            <label for="position">Position</label>
+            <label for="position">Position*</label>
             <input type="text" name="position" id="position">
           </div>
         </div>
 
         <div id="notWorkingContainer">
-          <label for="reason">Reason for not working</label>
+          <label for="reason">Reason for not working*</label>
           <input type="text" name="reason" id="reason">
         </div>
 
         <div>
-          <label for="experience">Years of experience</label>
-          <input type="number" id="experience" name="experience" min="0" max="15">
+          <label for="expectedEnd">Expected end (month)</label>
+          <input type="month" name="expectedEnd" id="expectedEnd">
         </div>
 
-        <div class="select">
-          <label for="workType">Type of work</label>
+        <div>
+          <label for="experience">Years of experience*</label>
+          <input type="number" id="experience" name="experience" min="0" max="15" required>
+        </div>
+
+        <div>
+          <label for="workType">Type of work*</label>
           <select name="workType" id="workType" required>
-            <option disabled selected value style="display:none">Select an option</option>
+            <option disabled selected value style="display:none">Select type</option>
             <option value="Manager">Manager</option>
             <option value="Specialist">Specialist</option>
             <option value="Individual activity">Individual activity</option>
           </select>
         </div>
 
-        <div class="select">
-          <label for="workArea">Area of work</label>
+        <div>
+          <label for="workArea">Area of work*</label>
           <select name="workArea" id="workArea" required>
-            <option disabled selected value style="display:none">Select an option</option>
+            <option disabled selected value style="display:none">Select area</option>
             <option value="Law">Law</option>
             <option value="Public Sector">Public Sector</option>
             <option value="Healthcare">Healthcare</option>
@@ -225,10 +241,12 @@
 
         <div id='buttons'>
           <button type="reset">Reset</button>
-          <button type="submit">Submit</button>
+          <button type="submit" id="submitButton">Submit</button>
         </div>
-
       </form>
+      <div id="msg">
+        <pre></pre>
+      </div>
     </div>
   </div>
 </body>
